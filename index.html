@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffc0cb;
+            flex-direction: column;
+            text-align: center;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+        .heart {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            transform: rotate(-45deg);
+            animation: beat 1s infinite alternate;
+            display: none;
+        }
+        .heart:before,
+        .heart:after {
+            content: "";
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .heart:before {
+            top: -50px;
+            left: 0;
+        }
+        .heart:after {
+            left: 50px;
+            top: 0;
+        }
+        @keyframes beat {
+            0% { transform: scale(1) rotate(-45deg); }
+            100% { transform: scale(1.2) rotate(-45deg); }
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            background-color: red;
+            padding: 10px;
+            border-radius: 10px;
+            display: none;
+        }
+        .email-icon {
+            margin-top: 20px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+        }
+        .cat {
+            width: 150px;
+            height: 150px;
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function showHeart() {
+            document.querySelector('.heart').style.display = 'block';
+            document.querySelector('.message').style.display = 'block';
+            let cat = document.querySelector('.cat');
+            cat.style.display = 'block';
+            cat.src = cat.src; // Force reload in case of caching issues
+        }
+    </script>
+</head>
+<body>
+    <div class="heart"></div>
+    <div class="message">Happy Valentine's Day! 💖</div>
+    <!-- <img src="https://drive.google.com/uc?export=view&id=1Pa7S7jxaKua_AVf4HFAIC2GyMgFngCNX" class="cat" alt="Your Image"> -->
+    <div class="email-icon" onclick="showHeart()">🐱</div>
+</body>
+</html>
